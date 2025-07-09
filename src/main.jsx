@@ -6,14 +6,17 @@ import "./index.css";
 import App from "./App.jsx";
 import { TokenContextProvider } from "./context/TokenContext.jsx";
 import CartContextProvider from "./context/CartContext.jsx";
-import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./redux/store.js";
 
 createRoot(document.getElementById("root")).render(
   <TokenContextProvider>
-    <CartContextProvider>
-      <StrictMode>
-        <App />
-      </StrictMode>
-    </CartContextProvider>
+    <Provider store={store}>
+      <CartContextProvider>
+        <StrictMode>
+          <App />
+        </StrictMode>
+      </CartContextProvider>
+    </Provider>
   </TokenContextProvider>
 );

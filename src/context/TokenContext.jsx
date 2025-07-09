@@ -6,7 +6,7 @@ export let TokenContext = createContext();
 
 export function TokenContextProvider({ children }) {
   let [token, setToken] = useState(null);
-  const expiresInMinutes = 4; // Token expiry time in minutes
+  const expiresInMinutes = 120; // Token expiry time in minutes
   const expiryDate = new Date(Date.now() + expiresInMinutes * 60 * 1000);
   useEffect(() => {
     let storedToken = Cookies.get("userToken");

@@ -11,6 +11,7 @@ function CartContextProvider({ children }) {
   };
 
   const [numOfItems, setNumOfItems] = useState(0);
+  const [cartId, setCartId] = useState(null);
 
   async function addToCart(productId) {
     return await axios
@@ -25,13 +26,14 @@ function CartContextProvider({ children }) {
       )
       .then((res) => {
         console.log("Product added to cart:", res.data);
+        setCartId(res.data.data._id);
         toast.success(res?.data?.message);
         setNumOfItems(res.data.numOfCartItems);
         return res;
       })
       .catch((err) => {
         console.error("Error adding product to cart:", err);
-        toast.error(err?.data?.message);
+        toast.error(err.response.data.message);
       });
   }
 
@@ -48,6 +50,7 @@ function CartContextProvider({ children }) {
       )
       .then((res) => {
         console.log("Updated cart:", res);
+        setCartId(res.data.data._id);
         return res;
       })
       .catch((err) => {
@@ -75,8 +78,9 @@ function CartContextProvider({ children }) {
         headers,
       })
       .then((res) => {
-        console.log("Product added to cart:", res);
+        console.log("get Products:", res);
         setNumOfItems(res.data.numOfCartItems);
+        setCartId(res.data.cartId);
         return res;
       })
       .catch((err) => {
@@ -99,6 +103,54 @@ function CartContextProvider({ children }) {
       });
   }
 
+  async function onlinePayment(shippingAddress) {
+    return await axios
+      .post(
+        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:5173`,
+        {
+          shippingAddress,
+        },
+        {
+          headers,
+        }
+      )
+      .then((res) => {
+        // console.log("Product added to cart:", res.data);
+        // console.log(res.data.session.url, "after check");
+        window.location.href = res.data.session.url;
+        toast.success(res?.data?.message);
+        setNumOfItems(res.data.numOfCartItems);
+        return res;
+      })
+      .catch((err) => {
+        console.error("Error adding product to cart:", err);
+        toast.error(err?.data?.message);
+      });
+  }
+  async function cashPayment(shippingAddress) {
+    return await axios
+      .post(
+        `https://ecommerce.routemisr.com/api/v1/orders/${cartId}`,
+        {
+          shippingAddress,
+        },
+        {
+          headers,
+        }
+      )
+      .then((res) => {
+        console.log("Product Cash :", res.data);
+        // console.log(res.data.session.url, "after check");
+        window.location.href = "https://localhost:5173/";
+        setNumOfItems(res.data.numOfCartItems);
+        return res;
+      })
+      .catch((err) => {
+        console.error("Error adding product to cart:", err);
+        toast.error(err?.data?.message);
+      });
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -108,6 +160,8 @@ function CartContextProvider({ children }) {
         updateCart,
         clearCart,
         numOfItems,
+        onlinePayment,
+        cashPayment,
       }}
     >
       {children}

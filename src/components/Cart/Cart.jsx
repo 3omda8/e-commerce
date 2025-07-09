@@ -152,7 +152,7 @@ function Cart() {
               </div>
               <div className="flex justify-center mt-8">
                 <Link to="/checkout">
-                  <button className="btn btn-primary w-[80%] text-lg">
+                  <button className="btn btn-primary text-lg px-8">
                     CheckOut
                   </button>
                 </Link>
