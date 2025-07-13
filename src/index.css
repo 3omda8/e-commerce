@@ -1,4 +1,53 @@
-@import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global theme variables */
+:root {
+  --color-main-color: #0aad0a;
+  --color-light-color: #f0f3f2;
+  --color-shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+    rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
+    rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
+  --font-family: "Encode Sans Expanded", sans-serif;
+  --color-rating-color: #ffc908;
+}
+
+/* Slick slider custom arrow color */
+.slick-prev:before,
+.slick-next:before {
+  color: var(--color-main-color) !important;
+}
+
+.active {
+  color: #0aad0a;
+}
+
+:where(
+    .menu li:not(.menu-title, .disabled) > *:not(ul, details, .menu-title)
+  ):not(summary, .active, .btn):focus {
+  cursor: pointer;
+  background-color: none;
+  --tw-text-opacity: 1;
+  color: #0aad0a;
+  outline: 0;
+  outline-offset: 0;
+}
+
+.menu li > *:not(ul, .menu-title, details, .btn):active,
+.menu li > *:not(ul, .menu-title, details, .btn).active,
+.menu li > details > summary:active {
+  --tw-bg-opacity: 0;
+  background-color: transparent;
+  --tw-text-opacity: 0;
+  color: #0aad0a;
+}
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @plugin "daisyui";
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 
@@ -15,4 +64,4 @@
 .slick-prev:before,
 .slick-next:before {
   color: var(--color-main-color) !important;
-}
+} */

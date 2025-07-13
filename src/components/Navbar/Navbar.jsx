@@ -1,6 +1,6 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/freshcart-logo.svg";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { TokenContext } from "../../context/TokenContext";
 import Cookies from "js-cookie";
 import { CartContext } from "../../context/CartContext";
@@ -8,7 +8,7 @@ import { CartContext } from "../../context/CartContext";
 function Navbar() {
   let { token, setToken } = useContext(TokenContext);
   let { numOfItems, getCartProducts } = useContext(CartContext);
-  let navigate = useNavigate();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   async function fetchCartProducts() {
     await getCartProducts();
@@ -37,7 +37,8 @@ function Navbar() {
               <div
                 tabIndex={0}
                 role="button"
-                className="btn btn-ghost lg:hidden"
+                className="btn btn-ghost lg:hidden "
+                onClick={() => setIsDropdownOpen((prev) => !prev)}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -58,35 +59,89 @@ function Navbar() {
 
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                className={`menu menu-sm dropdown-content mt-3 z-[9999] p-2 shadow bg-base-100 rounded-box w-52 ${
+                  isDropdownOpen ? "block" : "hidden"
+                }`}
               >
                 <li>
-                  <NavLink to="/" className="text-lg">
+                  <NavLink
+                    to="/"
+                    onClick={() => setIsDropdownOpen(false)}
+                    className={({ isActive }) =>
+                      `text-xl ${
+                        isActive
+                          ? "text-main-color font-semibold"
+                          : "text-gray-700"
+                      } focus:outline-none focus:bg-transparent`
+                    }
+                  >
                     Home
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/cart" className="text-lg">
+                  <NavLink
+                    to="/cart"
+                    onClick={() => setIsDropdownOpen(false)}
+                    className={({ isActive }) =>
+                      `text-xl ${
+                        isActive
+                          ? "text-main-color font-semibold"
+                          : "text-gray-700"
+                      } focus:outline-none focus:bg-transparent`
+                    }
+                  >
                     Cart
                   </NavLink>
                   {numOfItems > 0 ? (
-                    <div className="w-[16px] h-[20px] bg-red-500 rounded-full flex justify-center items-center text-white absolute top-[0] left-11">
+                    <div
+                      className={`h-[24px] w-[20px] rounded-full bg-red-500  flex justify-center items-center text-white absolute left-[48px] top-[-4px] hover:bg-red-500`}
+                    >
                       {numOfItems}
                     </div>
                   ) : null}
                 </li>
                 <li>
-                  <NavLink to="/products" className="text-lg">
+                  <NavLink
+                    to="/products"
+                    onClick={() => setIsDropdownOpen(false)}
+                    className={({ isActive }) =>
+                      `text-xl ${
+                        isActive
+                          ? "text-main-color font-semibold"
+                          : "text-gray-700"
+                      } focus:outline-none focus:bg-transparent`
+                    }
+                  >
                     Products
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/categories" className="text-lg">
+                  <NavLink
+                    to="/categories"
+                    onClick={() => setIsDropdownOpen(false)}
+                    className={({ isActive }) =>
+                      `text-xl ${
+                        isActive
+                          ? "text-main-color font-semibold"
+                          : "text-gray-700"
+                      } focus:outline-none focus:bg-transparent`
+                    }
+                  >
                     Categories
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/brands" className="text-lg">
+                  <NavLink
+                    to="/brands"
+                    onClick={() => setIsDropdownOpen(false)}
+                    className={({ isActive }) =>
+                      `text-xl ${
+                        isActive
+                          ? "text-main-color font-semibold"
+                          : "text-gray-700"
+                      } focus:outline-none focus:bg-transparent`
+                    }
+                  >
                     Brands
                   </NavLink>
                 </li>
@@ -99,34 +154,81 @@ function Navbar() {
         </div>
         <div className="navbar-center hidden lg:flex">
           {token ? (
-            <ul className="menu menu-horizontal px-1">
+            <ul className="menu menu-horizontal px-1 focus:outline-none">
               <li>
-                <NavLink to="/" className="text-xl">
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    `text-xl ${
+                      isActive
+                        ? "text-main-color font-semibold"
+                        : "text-gray-700"
+                    } focus:outline-none focus:bg-transparent`
+                  }
+                >
                   Home
                 </NavLink>
               </li>
               <li className="relative">
-                <NavLink to="/cart" className="text-xl">
+                <NavLink
+                  to="/cart"
+                  className={({ isActive }) =>
+                    `text-xl ${
+                      isActive
+                        ? "text-main-color font-semibold"
+                        : "text-gray-700"
+                    } focus:outline-none focus:bg-transparent`
+                  }
+                >
                   Cart
                 </NavLink>
                 {numOfItems > 0 ? (
-                  <div className="w-[1px] h-[24px] bg-red-500 rounded-full flex justify-center items-center text-white absolute top-[-4px] right-[-6px]">
+                  <div
+                    className={`h-[28px] w-[20px] rounded-full bg-red-500 flex justify-center items-center text-white absolute top-[-8px] right-[-10px] hover:bg-red-500`}
+                  >
                     {numOfItems}
                   </div>
                 ) : null}
               </li>
               <li>
-                <NavLink to="/products" className="text-xl">
+                <NavLink
+                  to="/products"
+                  className={({ isActive }) =>
+                    `text-xl ${
+                      isActive
+                        ? "text-main-color font-semibold"
+                        : "text-gray-700"
+                    } focus:outline-none focus:bg-transparent`
+                  }
+                >
                   Products
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/categories" className="text-xl">
+                <NavLink
+                  to="/categories"
+                  className={({ isActive }) =>
+                    `text-xl ${
+                      isActive
+                        ? "text-main-color font-semibold"
+                        : "text-gray-700"
+                    } focus:outline-none focus:bg-transparent`
+                  }
+                >
                   Categories
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/brands" className="text-xl">
+                <NavLink
+                  to="/brands"
+                  className={({ isActive }) =>
+                    `text-xl ${
+                      isActive
+                        ? "text-main-color font-semibold"
+                        : "text-gray-700"
+                    } focus:outline-none focus:bg-transparent`
+                  }
+                >
                   Brands
                 </NavLink>
               </li>
