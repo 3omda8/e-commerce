@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/freshcart-logo.svg";
 import { useContext, useEffect, useState } from "react";
 import { TokenContext } from "../../context/TokenContext";
@@ -31,7 +31,7 @@ function Navbar() {
   return (
     <div className="bg-slate-100">
       <div className="navbar w-full md:w-[90%] mx-auto">
-        <div className="navbar-start">
+        <div className="navbar-start block md:inline-flex">
           {token ? (
             <div className="dropdown">
               <div
