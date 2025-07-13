@@ -18,6 +18,9 @@ import { Toaster } from "react-hot-toast";
 import AllOrders from "./components/AllOrders/AllOrders";
 import CheckOut from "./components/CheckOut/CheckOut";
 import CategoryDetails from "./components/CategoryDetails/CategoryDetails";
+import ForgetPassword from "./components/ForgetPassword/ForgetPassword";
+import VerifyCode from "./components/VerifyCode/VerifyCode";
+import ResetNewPassword from "./components/ResetNewPassword/ResetNewPassword";
 function App() {
   let queryClient = new QueryClient();
 
@@ -73,6 +76,18 @@ function App() {
         {
           path: "/categoryDetails/:id",
           element: <CategoryDetails />,
+        },
+        {
+          path: "/forgetPassword",
+          element: <ForgetPassword />,
+        },
+        {
+          path: "/verfiyCode",
+          element: <VerifyCode />,
+        },
+        {
+          path: "/resetPassword",
+          element: <ResetNewPassword />,
         },
         {
           path: "/cart",

@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { TokenContext } from "../../context/TokenContext";
@@ -92,7 +92,12 @@ function Login() {
             <div>{formik.errors.password}</div>
           ) : null}
 
-          <div className="flex justify-end items-center">
+          <div className="flex justify-between items-center">
+            <Link to="/forgetPassword">
+              <label className="text-lg cursor-pointer">
+                Forget Password ?
+              </label>
+            </Link>
             <button
               type="submit"
               className="px-6 py-2 bg-green-500 text-white rounded-lg flex justify-center items-center"
