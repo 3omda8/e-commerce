@@ -1,8 +1,8 @@
 function Footer() {
   return (
     <>
-      <footer className="py-9 bg-blue-300 ">
-        <p className="text-center">Footer</p>
+      <footer className="bg-green-400 text-white py-4 text-center">
+        &copy; 2025 M.E.Dawood. All rights reserved.
       </footer>
     </>
   );
