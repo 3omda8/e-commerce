@@ -30,7 +30,7 @@ function Navbar() {
 
   return (
     <div className="bg-slate-100">
-      <div className="navbar w-full md:w-[90%] mx-auto ">
+      <div className="navbar w-full md:w-[90%] mx-auto">
         <div className="navbar-start">
           {token ? (
             <div className="dropdown">
@@ -236,7 +236,7 @@ function Navbar() {
           ) : null}
         </div>
         <div className="navbar-end">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal flex-nowrap">
             {token ? (
               <li>
                 <a onClick={() => logOut()} className="text-xl">

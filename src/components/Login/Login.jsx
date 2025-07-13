@@ -70,7 +70,7 @@ function Login() {
           <input
             type="email"
             placeholder="E-mail"
-            className="input w-full my-2 focus:outline-0 rounded-lg"
+            className="input w-full my-2 focus:outline-0 rounded-lg border-1 border-gray-300"
             name="email"
             value={formik.values.email}
             onChange={formik.handleChange}
@@ -82,7 +82,7 @@ function Login() {
           <input
             type="password"
             placeholder="Password"
-            className="input w-full my-2 focus:outline-0 rounded-lg"
+            className="input w-full my-2 focus:outline-0 rounded-lg border-1 border-gray-300"
             name="password"
             value={formik.values.password}
             onChange={formik.handleChange}
