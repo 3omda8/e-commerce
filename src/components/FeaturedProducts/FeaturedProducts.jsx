@@ -2,13 +2,18 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../Loader/Loader";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 
 // Ensure you have FontAwesome CSS imported
 
 function FeaturedProducts() {
   let { addToCart } = useContext(CartContext);
+  const [wishList, setWishList] = useState(false);
+
+  function handleWishList() {
+    setWishList(true);
+  }
 
   async function addProductToCart(productId) {
     await addToCart(productId);
@@ -64,7 +69,14 @@ function FeaturedProducts() {
             key={product.id}
             className="w-full sm:w-1/2 md:w-1/4 lg:w-1/5 xl:1/6 px-5 py-3 "
           >
-            <div className="hover:cursor-pointer bg-slate-100 p-2 rounded-lg shadow-lg">
+            <div className="hover:cursor-pointer bg-slate-100 p-2 rounded-lg shadow-lg relative">
+              <div className="absolute right-6 top-6">
+                {wishList ? (
+                  <i class="fa-solid fa-heart text-2xl text-main-color"></i>
+                ) : (
+                  <i class="fa-regular fa-heart text-2xl text-main-color"></i>
+                )}
+              </div>
               <Link
                 to={`/productDetails/${product.id}/${product.category.name}`}
               >

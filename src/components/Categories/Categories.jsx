@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../redux/category/category";
+import { Link } from "react-router-dom";
 
 function Categories() {
   const { category } = useSelector((state) => state.categoryReducer);
@@ -22,16 +23,18 @@ function Categories() {
           {category.map((category) => (
             <div
               key={category._id}
-              className="w-[80%] mx-auto sm:mx-0 sm:w-1/2 md:w-1/3 lg:w-1/5 xl:w-1/6 p-2"
+              className="w-[80%] mx-auto sm:mx-0 sm:w-1/2 md:w-1/3 lg:w-1/5 xl:w-1/6 p-2 hover:cursor-pointer"
             >
-              <div className=" bg-green-200 rounded-lg">
-                <img
-                  src={category.image}
-                  alt=""
-                  className="w-full h-[200px] p-2"
-                />
-                <p className="p-2 text-lg">{category.name}</p>
-              </div>
+              <Link to={`/categoryDetails/${category._id}`}>
+                <div className=" bg-green-200 rounded-lg">
+                  <img
+                    src={category.image}
+                    alt=""
+                    className="w-full h-[200px] p-2"
+                  />
+                  <p className="p-2 text-lg">{category.name}</p>
+                </div>
+              </Link>
             </div>
           ))}
         </div>

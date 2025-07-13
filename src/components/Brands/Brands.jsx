@@ -22,7 +22,7 @@ function Brands() {
           {brands.map((brand) => (
             <div
               key={brand._id}
-              className="w-[80%] mx-auto sm:mx-0 sm:w-1/2 md:w-1/3 lg:w-1/5 xl:w-1/6 p-2"
+              className="w-[80%] mx-auto sm:mx-0 sm:w-1/2 md:w-1/3 lg:w-1/5 xl:w-1/6 p-2 "
             >
               <div className=" bg-green-200 rounded-lg">
                 <img

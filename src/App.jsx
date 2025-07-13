@@ -17,6 +17,7 @@ import ProductDetails from "./components/ProductDetails/ProductDetails";
 import { Toaster } from "react-hot-toast";
 import AllOrders from "./components/AllOrders/AllOrders";
 import CheckOut from "./components/CheckOut/CheckOut";
+import CategoryDetails from "./components/CategoryDetails/CategoryDetails";
 function App() {
   let queryClient = new QueryClient();
 
@@ -68,6 +69,10 @@ function App() {
         {
           path: "/productDetails/:id/:category",
           element: <ProductDetails />,
+        },
+        {
+          path: "/categoryDetails/:id",
+          element: <CategoryDetails />,
         },
         {
           path: "/cart",
