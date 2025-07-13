@@ -31,7 +31,11 @@ function Navbar() {
   return (
     <div className="bg-slate-100">
       <div className="navbar w-full md:w-[90%] mx-auto">
-        <div className="navbar-start block md:inline-flex">
+        <div
+          className={`navbar-start ${
+            token ? `inline-flex` : `block`
+          }  md:inline-flex`}
+        >
           {token ? (
             <div className="dropdown">
               <div
