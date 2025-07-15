@@ -72,9 +72,9 @@ function FeaturedProducts() {
             <div className="hover:cursor-pointer bg-slate-100 p-2 rounded-lg shadow-lg relative">
               <div className="absolute right-6 top-6">
                 {wishList ? (
-                  <i class="fa-solid fa-heart text-2xl text-main-color"></i>
+                  <i className="fa-solid fa-heart text-2xl text-main-color"></i>
                 ) : (
-                  <i class="fa-regular fa-heart text-2xl text-main-color"></i>
+                  <i className="fa-regular fa-heart text-2xl text-main-color"></i>
                 )}
               </div>
               <Link

@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import * as Yup from "yup";
+import { Helmet } from "react-helmet";
 
 function CheckOut() {
   const { onlinePayment, cashPayment } = useContext(CartContext);
@@ -38,6 +39,10 @@ function CheckOut() {
   }
   return (
     <div className="w-full md:w-1/2 mx-auto p-4 pt-16">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Check-Out</title>
+      </Helmet>
       <h1 className="py-6 font-bold text-main-color text-xl">
         Enter Your Shipping data:
       </h1>

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useFormik } from "formik";
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 
 function VerifyCode() {
@@ -30,6 +31,10 @@ function VerifyCode() {
   }
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Verify-Code</title>
+      </Helmet>
       <div className="w-[70%] mx-auto my-4 lg:w-[60%] pt-10">
         <h2 className="text-3xl font-bold my-4">Verification Code : </h2>
 

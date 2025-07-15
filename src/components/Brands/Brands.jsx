@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import Loader from "../Loader/Loader";
 import { useEffect } from "react";
 import { getBrands } from "../../redux/brands/brandSlice";
+import { Helmet } from "react-helmet";
 
 function Brands() {
   let { brands } = useSelector((state) => state.brandReducer);
@@ -14,6 +15,10 @@ function Brands() {
   console.log(brands);
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Brands</title>
+      </Helmet>
       <div className="container mx-auto">
         <h2 className="font-bold px-2 py-8 pt-10 text-[3rem] text-center text-green-600 italic">
           Our Brands

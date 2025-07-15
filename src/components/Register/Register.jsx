@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { Helmet } from "react-helmet";
 
 function Register() {
   let [isLoading, setIsLoading] = useState(false);
@@ -70,6 +71,10 @@ function Register() {
   }
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Register</title>
+      </Helmet>
       <div className="w-[70%] mx-auto my-4 lg:w-[60%]">
         <h2 className="text-3xl font-bold my-4">Register Now:</h2>
         {userMessage ? (

@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as Yup from "yup";
+import { Helmet } from "react-helmet";
 
 function ForgetPassword() {
   let navigate = useNavigate();
@@ -37,6 +38,10 @@ function ForgetPassword() {
   }
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Forget Password</title>
+      </Helmet>
       <div className="w-[70%] mx-auto my-4 lg:w-[60%] pt-10">
         <h2 className="text-3xl font-bold my-4">Forget Password : </h2>
 

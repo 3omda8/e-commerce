@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { TokenContext } from "../../context/TokenContext";
 import Cookies from "js-cookie";
+import { Helmet } from "react-helmet";
 
 function Login() {
   let [isLoading, setIsLoading] = useState(false);
@@ -57,6 +58,10 @@ function Login() {
   return (
     <>
       <div className="w-[70%] mx-auto my-4 lg:w-[60%]">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Login</title>
+        </Helmet>
         <h2 className="text-3xl font-bold my-4">Login </h2>
         {userError ? (
           <div className="alert alert-error">

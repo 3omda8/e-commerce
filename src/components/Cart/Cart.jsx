@@ -3,6 +3,7 @@ import image1 from "../../assets/EmptyCart.png";
 import { CartContext } from "../../context/CartContext";
 import Loader from "../Loader/Loader";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 function Cart() {
   let { getCartProducts, removeFromCart, updateCart, clearCart } =
@@ -40,6 +41,10 @@ function Cart() {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Cart</title>
+      </Helmet>
       {loading ? (
         <Loader />
       ) : cartItems.length > 0 ? (

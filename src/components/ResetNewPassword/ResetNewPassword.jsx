@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useFormik } from "formik";
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 
 function ResetNewPassword() {
@@ -31,6 +32,10 @@ function ResetNewPassword() {
   }
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Reset Password</title>
+      </Helmet>
       <div className="w-[70%] mx-auto my-4 lg:w-[60%] pt-10">
         <h2 className="text-3xl font-bold my-4">Enter New Password : </h2>
 

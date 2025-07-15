@@ -17,7 +17,6 @@ import ProductDetails from "./components/ProductDetails/ProductDetails";
 import { Toaster } from "react-hot-toast";
 import AllOrders from "./components/AllOrders/AllOrders";
 import CheckOut from "./components/CheckOut/CheckOut";
-import CategoryDetails from "./components/CategoryDetails/CategoryDetails";
 import ForgetPassword from "./components/ForgetPassword/ForgetPassword";
 import VerifyCode from "./components/VerifyCode/VerifyCode";
 import ResetNewPassword from "./components/ResetNewPassword/ResetNewPassword";
@@ -72,10 +71,6 @@ function App() {
         {
           path: "/productDetails/:id/:category",
           element: <ProductDetails />,
-        },
-        {
-          path: "/categoryDetails/:id",
-          element: <CategoryDetails />,
         },
         {
           path: "/forgetPassword",
