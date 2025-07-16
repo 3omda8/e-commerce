@@ -20,6 +20,7 @@ import CheckOut from "./components/CheckOut/CheckOut";
 import ForgetPassword from "./components/ForgetPassword/ForgetPassword";
 import VerifyCode from "./components/VerifyCode/VerifyCode";
 import ResetNewPassword from "./components/ResetNewPassword/ResetNewPassword";
+import WishList from "./components/WishList/WishList";
 function App() {
   let queryClient = new QueryClient();
 
@@ -70,7 +71,16 @@ function App() {
         },
         {
           path: "/productDetails/:id/:category",
+
           element: <ProductDetails />,
+        },
+        {
+          path: "/wishlist",
+          element: (
+            <ProtectedRoutes>
+              <WishList />
+            </ProtectedRoutes>
+          ),
         },
         {
           path: "/forgetPassword",

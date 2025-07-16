@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getSubCategories = createAsyncThunk(
-  "category/getSubCategories",
+  "subCategory/getSubCategories",
   async function (id) {
     const { data } = await axios.get(
       `https://ecommerce.routemisr.com/api/v1/categories/${id}/subcategories`

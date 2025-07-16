@@ -4,15 +4,40 @@ import Loader from "../Loader/Loader";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
-
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addProductToWishList,
+  removeProductFromWishList,
+} from "../../redux/wishList/wishList";
 // Ensure you have FontAwesome CSS imported
 
 function FeaturedProducts() {
   let { addToCart } = useContext(CartContext);
-  const [wishList, setWishList] = useState(false);
+  // const [wishList, setWishList] = useState([]);
+  // const { products } = useSelector((state) => state.wishListReducer);
 
-  function handleWishList() {
-    setWishList(true);
+  const dispatch = useDispatch();
+
+  // async function handleAddToWishlist(productId) {
+  //   dispatch(addProductToWishList(productId)).then(() => {
+  //     dispatch(getWishListProducts()); // ✅ update UI after change
+  //   });
+  // }
+
+  const { products: wishlistProducts } = useSelector(
+    (state) => state.wishListReducer
+  );
+
+  function isInWishlist(productId) {
+    return wishlistProducts.some((item) => item._id === productId);
+  }
+
+  function toggleWishlist(productId) {
+    if (isInWishlist(productId)) {
+      dispatch(removeProductFromWishList(productId));
+    } else {
+      dispatch(addProductToWishList(productId));
+    }
   }
 
   async function addProductToCart(productId) {
@@ -70,8 +95,11 @@ function FeaturedProducts() {
             className="w-full sm:w-1/2 md:w-1/4 lg:w-1/5 xl:1/6 px-5 py-3 "
           >
             <div className="hover:cursor-pointer bg-slate-100 p-2 rounded-lg shadow-lg relative">
-              <div className="absolute right-6 top-6">
-                {wishList ? (
+              <div
+                onClick={() => toggleWishlist(product.id)}
+                className="absolute right-6 top-6"
+              >
+                {isInWishlist(product.id) ? (
                   <i className="fa-solid fa-heart text-2xl text-main-color"></i>
                 ) : (
                   <i className="fa-regular fa-heart text-2xl text-main-color"></i>

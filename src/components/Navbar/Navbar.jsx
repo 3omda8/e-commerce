@@ -84,28 +84,6 @@ function Navbar() {
                 </li>
                 <li>
                   <NavLink
-                    to="/cart"
-                    onClick={() => setIsDropdownOpen(false)}
-                    className={({ isActive }) =>
-                      `text-xl ${
-                        isActive
-                          ? "text-main-color font-semibold"
-                          : "text-gray-700"
-                      } focus:outline-none focus:bg-transparent`
-                    }
-                  >
-                    Cart
-                  </NavLink>
-                  {numOfItems > 0 ? (
-                    <div
-                      className={`h-[24px] w-[20px] rounded-full bg-red-500  flex justify-center items-center text-white absolute left-[48px] top-[-4px] hover:bg-red-500`}
-                    >
-                      {numOfItems}
-                    </div>
-                  ) : null}
-                </li>
-                <li>
-                  <NavLink
                     to="/products"
                     onClick={() => setIsDropdownOpen(false)}
                     className={({ isActive }) =>
@@ -149,6 +127,42 @@ function Navbar() {
                     Brands
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    to="/cart"
+                    onClick={() => setIsDropdownOpen(false)}
+                    className={({ isActive }) =>
+                      `text-xl ${
+                        isActive
+                          ? "text-main-color font-semibold"
+                          : "text-gray-700"
+                      } focus:outline-none focus:bg-transparent`
+                    }
+                  >
+                    Cart
+                  </NavLink>
+                  {numOfItems > 0 ? (
+                    <div
+                      className={`h-[24px] w-[20px] rounded-full bg-red-500  flex justify-center items-center text-white absolute left-[48px] top-[-4px] hover:bg-red-500`}
+                    >
+                      {numOfItems}
+                    </div>
+                  ) : null}
+                </li>
+                <li>
+                  <NavLink
+                    to="/wishlist"
+                    className={({ isActive }) =>
+                      `text-xl ${
+                        isActive
+                          ? "text-main-color font-semibold"
+                          : "text-gray-700"
+                      } focus:outline-none focus:bg-transparent`
+                    }
+                  >
+                    WishList
+                  </NavLink>
+                </li>
               </ul>
             </div>
           ) : null}
@@ -173,27 +187,7 @@ function Navbar() {
                   Home
                 </NavLink>
               </li>
-              <li className="relative">
-                <NavLink
-                  to="/cart"
-                  className={({ isActive }) =>
-                    `text-xl ${
-                      isActive
-                        ? "text-main-color font-semibold"
-                        : "text-gray-700"
-                    } focus:outline-none focus:bg-transparent`
-                  }
-                >
-                  Cart
-                </NavLink>
-                {numOfItems > 0 ? (
-                  <div
-                    className={`h-[28px] w-[20px] rounded-full bg-red-500 flex justify-center items-center text-white absolute top-[-8px] right-[-10px] hover:bg-red-500`}
-                  >
-                    {numOfItems}
-                  </div>
-                ) : null}
-              </li>
+
               <li>
                 <NavLink
                   to="/products"
@@ -234,6 +228,41 @@ function Navbar() {
                   }
                 >
                   Brands
+                </NavLink>
+              </li>
+              <li className="relative">
+                <NavLink
+                  to="/cart"
+                  className={({ isActive }) =>
+                    `text-xl ${
+                      isActive
+                        ? "text-main-color font-semibold"
+                        : "text-gray-700"
+                    } focus:outline-none focus:bg-transparent`
+                  }
+                >
+                  Cart
+                </NavLink>
+                {numOfItems > 0 ? (
+                  <div
+                    className={`h-[28px] w-[20px] rounded-full bg-red-500 flex justify-center items-center text-white absolute top-[-8px] right-[-10px] hover:bg-red-500`}
+                  >
+                    {numOfItems}
+                  </div>
+                ) : null}
+              </li>
+              <li>
+                <NavLink
+                  to="/wishlist"
+                  className={({ isActive }) =>
+                    `text-xl ${
+                      isActive
+                        ? "text-main-color font-semibold"
+                        : "text-gray-700"
+                    } focus:outline-none focus:bg-transparent`
+                  }
+                >
+                  WishList
                 </NavLink>
               </li>
             </ul>
