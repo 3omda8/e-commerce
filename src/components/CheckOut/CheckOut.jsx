@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import * as Yup from "yup";
 import { Helmet } from "react-helmet";
+import toast from "react-hot-toast";
 
 function CheckOut() {
   const { onlinePayment, cashPayment } = useContext(CartContext);
@@ -14,10 +15,8 @@ function CheckOut() {
       paymentMethod: "",
     },
     validationSchema: Yup.object({
-      details: Yup.string()
-        .details("Invalid Details")
-        .required("details is required"),
-      city: Yup.string().city("Invalid Details").required("city is required"),
+      details: Yup.string().required("details is required"),
+      city: Yup.string().required("city is required"),
       phone: Yup.string()
         .matches(/^01[0125][0-9]{8}$/, "Phone must be Egyption number")
         .required("Phone Number is required"),
@@ -29,14 +28,21 @@ function CheckOut() {
   });
 
   async function applyPayment(values) {
+    const shippingAddress = {
+      details: values.details,
+      phone: values.phone,
+      city: values.city,
+    };
+
     if (values.paymentMethod === "online") {
-      await onlinePayment(values);
+      await onlinePayment(shippingAddress);
     } else if (values.paymentMethod === "cash") {
-      await cashPayment(values);
+      await cashPayment(shippingAddress);
     } else {
-      console.log("Error in Payment Method");
+      toast.error("Please select a payment method.");
     }
   }
+
   return (
     <div className="w-full md:w-1/2 mx-auto p-4 pt-16">
       <Helmet>
@@ -91,7 +97,9 @@ function CheckOut() {
             onBlur={formik.handleBlur}
             className="select select-success"
           >
-            <option disabled={true}>Choose A Payment Method</option>
+            <option value="" disabled={true}>
+              Choose A Payment Method
+            </option>
             <option value="online">Online Payment</option>
             <option value="cash">Cash Payment</option>
           </select>

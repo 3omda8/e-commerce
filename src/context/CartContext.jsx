@@ -10,6 +10,8 @@ function CartContextProvider({ children }) {
     token: Cookies.get("userToken"),
   };
 
+  const baseUrl = window.location.origin;
+
   const [numOfItems, setNumOfItems] = useState(0);
   const [cartId, setCartId] = useState(null);
 
@@ -106,7 +108,7 @@ function CartContextProvider({ children }) {
   async function onlinePayment(shippingAddress) {
     return await axios
       .post(
-        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:5173`,
+        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=${baseUrl}`,
         {
           shippingAddress,
         },
@@ -115,8 +117,6 @@ function CartContextProvider({ children }) {
         }
       )
       .then((res) => {
-        // console.log("Product added to cart:", res.data);
-        // console.log(res.data.session.url, "after check");
         window.location.href = res.data.session.url;
         toast.success(res?.data?.message);
         setNumOfItems(res.data.numOfCartItems);
@@ -141,7 +141,7 @@ function CartContextProvider({ children }) {
       .then((res) => {
         console.log("Product Cash :", res.data);
         // console.log(res.data.session.url, "after check");
-        window.location.href = "https://localhost:5173/";
+        window.location.href = window.location.origin;
         setNumOfItems(res.data.numOfCartItems);
         return res;
       })
