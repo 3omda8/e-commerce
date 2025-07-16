@@ -109,12 +109,16 @@ export const getWishListProducts = createAsyncThunk(
 export const addProductToWishList = createAsyncThunk(
   "wishList/addProductToWishList",
   async (productId) => {
-    const res = await axios.post(
+    await axios.post(
       "https://ecommerce.routemisr.com/api/v1/wishlist",
       { productId },
       { headers }
     );
-    return productId;
+
+    const res = await axios.get(
+      `https://ecommerce.routemisr.com/api/v1/products/${productId}`
+    );
+    return res.data.data;
   }
 );
 
@@ -145,10 +149,12 @@ export const wishListSlice = createSlice({
         state.products = action.payload;
       })
       .addCase(addProductToWishList.fulfilled, (state, action) => {
-        const id = action.payload;
-        const exists = state.products.find((item) => item._id === id);
+        const newProduct = action.payload;
+        const exists = state.products.find(
+          (item) => item._id === newProduct._id
+        );
         if (!exists) {
-          state.products.push({ _id: id });
+          state.products.push(newProduct);
         }
       })
       .addCase(removeProductFromWishList.fulfilled, (state, action) => {

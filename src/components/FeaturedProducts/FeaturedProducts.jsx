@@ -2,14 +2,14 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../Loader/Loader";
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useEffect } from "react";
 import { CartContext } from "../../context/CartContext";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  getWishListProducts,
   addProductToWishList,
   removeProductFromWishList,
 } from "../../redux/wishList/wishList";
-// Ensure you have FontAwesome CSS imported
 
 function FeaturedProducts() {
   let { addToCart } = useContext(CartContext);
@@ -17,6 +17,12 @@ function FeaturedProducts() {
   // const { products } = useSelector((state) => state.wishListReducer);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (wishlistProducts.length === 0) {
+      dispatch(getWishListProducts());
+    }
+  }, []);
 
   // async function handleAddToWishlist(productId) {
   //   dispatch(addProductToWishList(productId)).then(() => {
@@ -32,11 +38,11 @@ function FeaturedProducts() {
     return wishlistProducts.some((item) => item._id === productId);
   }
 
-  function toggleWishlist(productId) {
-    if (isInWishlist(productId)) {
-      dispatch(removeProductFromWishList(productId));
+  function toggleWishlist(product) {
+    if (isInWishlist(product._id || product.id)) {
+      dispatch(removeProductFromWishList(product._id || product.id));
     } else {
-      dispatch(addProductToWishList(productId));
+      dispatch(addProductToWishList(product.id));
     }
   }
 
@@ -96,7 +102,7 @@ function FeaturedProducts() {
           >
             <div className="hover:cursor-pointer bg-slate-100 p-2 rounded-lg shadow-lg relative">
               <div
-                onClick={() => toggleWishlist(product.id)}
+                onClick={() => toggleWishlist(product)}
                 className="absolute right-6 top-6"
               >
                 {isInWishlist(product.id) ? (
