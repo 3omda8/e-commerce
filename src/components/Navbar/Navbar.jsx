@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../assets/freshcart-logo.svg";
+import logo from "../../assets/mercato.png";
 import { useContext, useEffect, useState } from "react";
 import { TokenContext } from "../../context/TokenContext";
 import Cookies from "js-cookie";
@@ -166,7 +166,7 @@ function Navbar() {
               </ul>
             </div>
           ) : null}
-          <Link to="/" className="btn btn-ghost text-xl">
+          <Link to="/" className="w-40">
             <img src={logo} alt="Logo image" />
           </Link>
         </div>
