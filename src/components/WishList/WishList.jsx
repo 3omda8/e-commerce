@@ -30,11 +30,11 @@ function WishList() {
 
   return (
     <div className="container mx-auto py-6">
-      <h2 className="text-3xl font-bold text-center mb-4 text-main-color">
+      <h2 className="text-3xl font-bold text-center mb-4 text-[#ff961d]">
         My Wishlist
       </h2>
       {products.length === 0 ? (
-        <p className="text-center font-semibold text-main-color my-6">
+        <p className="text-center font-semibold text-[#ff8a05] my-6">
           Your wishlist is empty.
         </p>
       ) : (
@@ -64,7 +64,7 @@ function WishList() {
                 <div className="flex flex-col">
                   <button
                     onClick={() => addProductToCart(product.id)}
-                    className="bg-main-color w-full font-semibold text-white px-4 py-2 rounded-lg mt-4 hover:bg-green-700  transition-colors duration-300 hover:cursor-pointer"
+                    className="bg-main-color w-full font-semibold text-white px-4 py-2 rounded-lg mt-4 hover:bg-[#ffa743]  transition-colors duration-300 hover:cursor-pointer"
                   >
                     Add to Cart
                   </button>

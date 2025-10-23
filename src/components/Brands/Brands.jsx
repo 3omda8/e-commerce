@@ -20,7 +20,7 @@ function Brands() {
         <title>Brands</title>
       </Helmet>
       <div className="container mx-auto">
-        <h2 className="font-bold px-2 py-8 pt-10 text-[3rem] text-center text-green-600 italic">
+        <h2 className="font-bold px-2 py-8 pt-10 text-[3rem] text-center text-[#0046FF] italic">
           Our Brands
         </h2>
         <div className="flex flex-wrap py-8">
@@ -29,7 +29,7 @@ function Brands() {
               key={brand._id}
               className="w-[80%] mx-auto sm:mx-0 sm:w-1/2 md:w-1/3 lg:w-1/5 xl:w-1/6 p-2 "
             >
-              <div className=" bg-green-200 rounded-lg">
+              <div className=" bg-[#8bd5ff] rounded-lg">
                 <img
                   src={brand.image}
                   alt=""

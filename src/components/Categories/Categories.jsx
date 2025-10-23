@@ -33,7 +33,7 @@ function Categories() {
           <meta charSet="utf-8" />
           <title>Categories</title>
         </Helmet>
-        <h2 className="font-bold px-2 py-8 pt-10 text-[3rem] text-center text-green-600 italic">
+        <h2 className="font-bold px-2 py-8 pt-10 text-[3rem] text-center text-[#0046FF] italic">
           Our Categories
         </h2>
         <>
@@ -45,7 +45,7 @@ function Categories() {
                 className="w-[80%] mx-auto sm:mx-0 sm:w-1/2 md:w-1/3 lg:w-1/5 xl:w-1/6 p-2 hover:cursor-pointer"
               >
                 <a href="#subCat">
-                  <div className=" bg-green-200 rounded-lg">
+                  <div className=" bg-[#8bd5ff] rounded-lg">
                     <img
                       src={category.image}
                       alt=""
@@ -72,7 +72,7 @@ function Categories() {
                 {subCategory.map((subCat) => (
                   <p
                     key={subCat._id}
-                    className="py-3 px-6 border border-1 bg-green-100 rounded-lg text-2xl font-semibold"
+                    className="py-3 px-6 border border-1 bg-orange-100 rounded-lg text-2xl font-semibold"
                   >
                     {subCat.name}
                   </p>

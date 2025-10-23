@@ -1,8 +1,8 @@
-import slider1 from "../../assets/slider-2.jpeg";
-import slider2 from "../../assets/slider-image-2.jpeg";
-import slider3 from "../../assets/slider-image-3.jpeg";
-import slider4 from "../../assets/grocery-banner.png";
-import slider5 from "../../assets/grocery-banner-2.jpeg";
+import slider1 from "../../assets/slide1.jpg";
+import slider2 from "../../assets/slide4.webp";
+import slider3 from "../../assets/slide2.jpg";
+import slider4 from "../../assets/slide5.jpeg";
+import slider5 from "../../assets/slide3.jpg";
 import Slider from "react-slick";
 
 function MainSlider() {
@@ -18,28 +18,28 @@ function MainSlider() {
   };
   return (
     <div className="container mx-auto">
-      <div className="flex my-10">
-        <div className="w-[95%] mx-auto lg:w-3/4 ">
+      <div className="flex lg:my-10">
+        <div className="w-[95%] mx-auto my-auto lg:w-3/4 ">
           <Slider {...settings}>
             <div>
               <img
                 src={slider5}
                 alt="Slider 1"
-                className="w-full h-[260px] lg:h-[400px]"
+                className="w-full h-[260px] lg:h-[440px]"
               />
             </div>
             <div>
               <img
                 src={slider1}
                 alt="Slider 2"
-                className="w-full h-[260px] lg:h-[400px]"
+                className="w-full h-[260px] lg:h-[440px]"
               />
             </div>
             <div>
               <img
                 src={slider3}
                 alt="Slider 3"
-                className="w-full h-[260px] lg:h-[400px]"
+                className="w-full h-[260px] lg:h-[440px]"
               />
             </div>
           </Slider>
@@ -49,12 +49,12 @@ function MainSlider() {
             <img
               src={slider4}
               alt="Grocery Banner 1"
-              className="w-full h-[200px] object-cover"
+              className="w-full h-[220px] object-cover"
             />
             <img
               src={slider2}
               alt="Grocery Banner 2"
-              className="w-full h-[200px] object-cover"
+              className="w-full h-[220px] object-cover"
             />
           </div>
         </div>

@@ -74,7 +74,7 @@ function Navbar() {
                     className={({ isActive }) =>
                       `text-xl ${
                         isActive
-                          ? "text-main-color font-semibold"
+                          ? "text-[#0046FF] font-semibold"
                           : "text-gray-700"
                       } focus:outline-none focus:bg-transparent`
                     }
@@ -88,9 +88,7 @@ function Navbar() {
                     onClick={() => setIsDropdownOpen(false)}
                     className={({ isActive }) =>
                       `text-xl ${
-                        isActive
-                          ? "text-main-color font-semibold"
-                          : "text-gray-700"
+                        isActive ? " font-semibold" : "text-gray-700"
                       } focus:outline-none focus:bg-transparent`
                     }
                   >
@@ -103,9 +101,7 @@ function Navbar() {
                     onClick={() => setIsDropdownOpen(false)}
                     className={({ isActive }) =>
                       `text-xl ${
-                        isActive
-                          ? "text-main-color font-semibold"
-                          : "text-gray-700"
+                        isActive ? " font-semibold" : "text-gray-700"
                       } focus:outline-none focus:bg-transparent`
                     }
                   >
@@ -118,9 +114,7 @@ function Navbar() {
                     onClick={() => setIsDropdownOpen(false)}
                     className={({ isActive }) =>
                       `text-xl ${
-                        isActive
-                          ? "text-main-color font-semibold"
-                          : "text-gray-700"
+                        isActive ? " font-semibold" : "text-gray-700"
                       } focus:outline-none focus:bg-transparent`
                     }
                   >
@@ -133,9 +127,7 @@ function Navbar() {
                     onClick={() => setIsDropdownOpen(false)}
                     className={({ isActive }) =>
                       `text-xl ${
-                        isActive
-                          ? "text-main-color font-semibold"
-                          : "text-gray-700"
+                        isActive ? " font-semibold" : "text-gray-700"
                       } focus:outline-none focus:bg-transparent`
                     }
                   >
@@ -154,9 +146,7 @@ function Navbar() {
                     to="/wishlist"
                     className={({ isActive }) =>
                       `text-xl ${
-                        isActive
-                          ? "text-main-color font-semibold"
-                          : "text-gray-700"
+                        isActive ? " font-semibold" : "text-gray-700"
                       } focus:outline-none focus:bg-transparent`
                     }
                   >
@@ -179,7 +169,7 @@ function Navbar() {
                   className={({ isActive }) =>
                     `text-xl ${
                       isActive
-                        ? "text-main-color font-semibold"
+                        ? "text-[#0046FF] font-semibold"
                         : "text-gray-700"
                     } focus:outline-none focus:bg-transparent`
                   }
@@ -193,9 +183,7 @@ function Navbar() {
                   to="/products"
                   className={({ isActive }) =>
                     `text-xl ${
-                      isActive
-                        ? "text-main-color font-semibold"
-                        : "text-gray-700"
+                      isActive ? " font-semibold" : "text-gray-700"
                     } focus:outline-none focus:bg-transparent`
                   }
                 >
@@ -207,9 +195,7 @@ function Navbar() {
                   to="/categories"
                   className={({ isActive }) =>
                     `text-xl ${
-                      isActive
-                        ? "text-main-color font-semibold"
-                        : "text-gray-700"
+                      isActive ? " font-semibold" : "text-gray-700"
                     } focus:outline-none focus:bg-transparent`
                   }
                 >
@@ -221,9 +207,7 @@ function Navbar() {
                   to="/brands"
                   className={({ isActive }) =>
                     `text-xl ${
-                      isActive
-                        ? "text-main-color font-semibold"
-                        : "text-gray-700"
+                      isActive ? " font-semibold" : "text-gray-700"
                     } focus:outline-none focus:bg-transparent`
                   }
                 >
@@ -235,9 +219,7 @@ function Navbar() {
                   to="/cart"
                   className={({ isActive }) =>
                     `text-xl ${
-                      isActive
-                        ? "text-main-color font-semibold"
-                        : "text-gray-700"
+                      isActive ? " font-semibold" : "text-gray-700"
                     } focus:outline-none focus:bg-transparent`
                   }
                 >

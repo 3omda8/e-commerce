@@ -24,12 +24,6 @@ function FeaturedProducts() {
     }
   }, []);
 
-  // async function handleAddToWishlist(productId) {
-  //   dispatch(addProductToWishList(productId)).then(() => {
-  //     dispatch(getWishListProducts()); // ✅ update UI after change
-  //   });
-  // }
-
   const { products: wishlistProducts } = useSelector(
     (state) => state.wishListReducer
   );
@@ -58,33 +52,6 @@ function FeaturedProducts() {
     queryKey: ["featuredProducts"],
     queryFn: getProducts,
   });
-
-  // let [products, setProducts] = useState([]);
-
-  // useEffect(() => {
-  //   getProducts();
-  //   console.log("Fetching featured products...");
-  // }, []);
-
-  // async function getProducts() {
-  //   try {
-  //     let res = await axios.get(
-  //       "https://ecommerce.routemisr.com/api/v1/products"
-  //     );
-  //     let featuredProducts = await res.data.data;
-  //     setProducts(featuredProducts);
-  //     console.log(featuredProducts);
-  //   } catch (error) {
-  //     console.error("Error fetching products:", error);
-  //   }
-
-  // return await fetch("https://ecommerce.routemisr.com/api/v1/products")
-  //   .then((data) => {
-  //     console.log(data);
-  //   })
-  //   .catch((err) => {
-  //     console.error("Error fetching products:", err);
-  //   });
 
   return (
     <div className="container mx-auto">
