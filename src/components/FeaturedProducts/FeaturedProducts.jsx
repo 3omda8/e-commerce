@@ -133,7 +133,7 @@ function FeaturedProducts() {
               </Link>
               <button
                 onClick={() => addProductToCart(product.id)}
-                className="bg-main-color w-full text-white px-4 py-2 rounded-lg mt-4 hover:bg-green-700 transition-colors duration-300 hover:cursor-pointer"
+                className="bg-main-color w-full text-white px-4 py-2 rounded-lg mt-4 hover:bg-[#ffb74a] transition-colors duration-300 hover:cursor-pointer"
               >
                 Add to Cart
               </button>
